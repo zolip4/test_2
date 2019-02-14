@@ -1,11 +1,12 @@
 <?php
 
-class SDT_StorePickup_Model_CartController extends Mage_Core_Controller_Front_Action
+require_once Mage::getModuleDir('controllers', 'Mage_Checkout') . DS . 'CartController.php';
+class SDT_StorePickup_CartController extends Mage_Checkout_CartController
 {
     public function estimateUpdatePostAction()
     {
         $code = (string) $this->getRequest()->getParam('estimate_method');
-
+        if (!empty($code)) {
             $address = $this->_getQuote()->getShippingAddress();
             $address->setShippingMethod($code);
             if($code == SDT_StorePickup_Model_Pickup::SHIPPING_METHOD_CODE) {
@@ -13,6 +14,7 @@ class SDT_StorePickup_Model_CartController extends Mage_Core_Controller_Front_Ac
             }
             $address->save();
         }
-        $this-> goBack();
+        $this->_goBack();
     }
 }
+

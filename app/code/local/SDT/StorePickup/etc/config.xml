@@ -5,6 +5,17 @@
             <version>1.0.0</version>
         </SDT_StorePickup>
     </modules>
+    <frontend>
+        <routers>
+            <checkout>
+                <args>
+                    <modules>
+                        <SDT_StorePickup before="Mage_Checkout">SDT_StorePickup</SDT_StorePickup>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+    </frontend>
     <global>
         <models>
             <sdt_storepickup>
@@ -13,9 +24,6 @@
             <checkout>
                 <rewrite>
                     <type_onepage>SDT_StorePickup_Model_Onepage</type_onepage>
-                </rewrite>
-                <rewrite>
-                    <controllers>SDT_StorePickup_Model_CartController</controllers>
                 </rewrite>
             </checkout>
         </models>
