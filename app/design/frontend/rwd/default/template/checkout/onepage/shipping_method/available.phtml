@@ -44,7 +44,7 @@
                            <br><br>
                            <select name="store_pickup" id="pickup_in_store">
                                <?php foreach (explode(',' , $storePickups) as  $item): ?>
-                                   <option value="<?php echo Mage::app()->getStore($item)->getStoreId() ?>"><?php echo Mage::app()->getStore($item)->getName() ?></option>
+                                   <option value="<?php echo Mage::app()->getStore($item)->getStoreId() ?>" <?php echo $this->getAddress()->getStorePickup() == $item ? 'selected' : ''; ?>><?php echo Mage::app()->getStore($item)->getName() ?></option>
                                <?php endforeach; ?>
                            </select>
                        <?php endif; ?>
