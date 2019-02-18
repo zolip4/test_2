@@ -15,17 +15,31 @@
                 </args>
             </checkout>
         </routers>
+        <events>
+            <sales_quote_address_save_before>
+                <observers>
+                    <SDT_StorePickup_Model_Observer>
+                        <type>singleton</type>
+                        <class>sdt_storepickup/observer</class>
+                        <method>setSorePickup</method>
+                    </SDT_StorePickup_Model_Observer>
+                </observers>
+            </sales_quote_address_save_before>
+        </events>
     </frontend>
     <global>
         <models>
             <sdt_storepickup>
                 <class>SDT_StorePickup_Model</class>
             </sdt_storepickup>
-            <checkout>
+            <!--<checkout>
                 <rewrite>
                     <type_onepage>SDT_StorePickup_Model_Onepage</type_onepage>
                 </rewrite>
-            </checkout>
+                <rewrite>
+                    <controllers>SDT_StorePickup_Model_CartController</controllers>
+                </rewrite>
+            </checkout>-->
         </models>
         <helpers>
             <sdt_storepickup>
@@ -50,6 +64,11 @@
                 </store_pickup>
             </sales_convert_quote_address>
         </fieldsets>
+        <blocks>
+            <sdt_storepickup>
+                <class>SDT_StorePickup_Block</class>
+            </sdt_storepickup>
+        </blocks>
     </global>
     <default>
         <carriers> <!-- подключаем новый метод доставки -->

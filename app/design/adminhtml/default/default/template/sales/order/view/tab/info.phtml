@@ -76,10 +76,7 @@
                     <?php endif; ?>
                     <br>
                     <?php if(!empty($_order->getStorePickup())): ?>
-                        <?php $store = Mage::app()->getStore($_order->getStorePickup()); ?>
-                        <?php if($store): ?>
-                            <span><?php echo $this->__('Store Pickup'); ?>: <?php echo $store->getName() ?></span>
-                        <?php endif; ?>
+                        <span><?php echo $this->__('Store Pickup'); ?>: <?php echo $_order->getStorePickup() ?></span>
                     <?php endif; ?>
                 <?php else: ?>
                     <?php echo $this->helper('sales')->__('No shipping information available'); ?>

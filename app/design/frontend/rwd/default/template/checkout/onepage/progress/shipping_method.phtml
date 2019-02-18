@@ -1,5 +1,4 @@
 <?php
-
 ?>
 <?php if ($this->getCheckout()->getStepData('shipping_method', 'complete')): ?>
 <dt class="complete">
@@ -28,7 +27,7 @@
     <br>
     <?php $store = $this->getQuote()->getShippingAddress()->getStorePickup(); ?>
     <?php if($this->getShippingMethod() == SDT_StorePickup_Model_Pickup::SHIPPING_METHOD_CODE): ?>
-        <?php echo Mage::app()->getStore($store)->getName() ?>
+        <?php echo $store ?>
     <?php endif; ?>
 </dd>
 <?php else: ?>

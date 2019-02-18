@@ -27,16 +27,15 @@
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
                         </title>
-                        <storepickup translate="label">
-                            <label>Select store to pick up</label>
-                            <frontend_type>multiselect</frontend_type>
-                            <sort_order>3</sort_order>
-                            <source_model>adminhtml/system_config_source_store</source_model>
+                        <stores translate="label">
+                            <label>Stores</label>
+                            <frontend_model>sdt_storepickup/stores</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
+                            <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <can_be_empty>0</can_be_empty>
-                        </storepickup>
+                        </stores>
                         <sallowspecific translate="label">
                             <label>For selected countries only</label>
                             <frontend_type>select</frontend_type>

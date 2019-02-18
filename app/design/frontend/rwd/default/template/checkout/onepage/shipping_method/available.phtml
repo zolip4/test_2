@@ -40,11 +40,11 @@
                         </label>
 
                        <?php $storePickups = $_storePickupHelper->getStorePickups($_rate); ?>
-                       <?php if(!is_null($storePickups)): ?>
+                       <?php if($storePickups): ?>
                            <br><br>
                            <select name="store_pickup" id="pickup_in_store">
-                               <?php foreach (explode(',' , $storePickups) as  $item): ?>
-                                   <option value="<?php echo Mage::app()->getStore($item)->getStoreId() ?>" <?php echo $this->getAddress()->getStorePickup() == $item ? 'selected' : ''; ?>><?php echo Mage::app()->getStore($item)->getName() ?></option>
+                               <?php foreach ($storePickups as  $item): ?>
+                                   <option value="<?php echo $item['store_pickup'] ?>" <?php echo $this->getAddress()->getStorePickup() == $item['store_pickup'] ? 'selected' : ''; ?>><?php echo $item['store_pickup'] ?></option>
                                <?php endforeach; ?>
                            </select>
                        <?php endif; ?>
